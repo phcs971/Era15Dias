@@ -9,11 +9,19 @@ import 'package:intl/intl.dart';
 import '../../utils.dart';
 
 const images = [
-  'assets/images/stories/gincana_headache.png',
-  'assets/images/stories/gincana_raiva.png',
-  'assets/images/stories/gincana_tristeza.png',
   'assets/images/stories/gincana_angustia.png',
+  'assets/images/stories/gincana_angustia_2.png',
+  'assets/images/stories/gincana_covid.png',
   'assets/images/stories/gincana_covid_2.png',
+  'assets/images/stories/gincana_covid_3.png',
+  'assets/images/stories/gincana_headache.png',
+  'assets/images/stories/gincana_morto.png',
+  'assets/images/stories/gincana_raiva.png',
+  'assets/images/stories/gincana_raiva_2.png',
+  'assets/images/stories/gincana_raiva_3.png',
+  'assets/images/stories/gincana_raiva_4.png',
+  'assets/images/stories/gincana_tristeza.png',
+  'assets/images/stories/gincana_tristeza_2.png',
 ];
 final rand = Random();
 
@@ -218,19 +226,33 @@ class _HomePageState extends State<HomePage> {
         width: double.infinity,
         color: Colors.black.withOpacity(0.75),
         alignment: Alignment.center,
-        child: Text(
-          result != null
-              ? result!
-                  ? "VOCÊ GANHOU!"
-                  : "VOCÊ PERDEU!\n${points.toStringAsFixed(2)} PONTOS"
-              : start
-                  ? "APERTE ESPAÇO\nPARA COMEÇAR"
-                  : "PAUSADO",
-          style: const TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-            fontSize: 128,
-          ),
+        child: Column(
+          children: [
+            const SizedBox(height: 156),
+            Text(
+              result != null
+                  ? result!
+                      ? "VOCÊ GANHOU!"
+                      : "VOCÊ PERDEU!\n${points.toStringAsFixed(2)} PONTOS"
+                  : start
+                      ? "APERTE ESPAÇO\nPARA COMEÇAR"
+                      : "PAUSADO",
+              style: const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 96,
+              ),
+            ),
+            const SizedBox(height: 156),
+            if (result == null) const Text(
+              "Para desviar dos sentimentos ruins, segure a tecla barra de espaço",
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 36,
+              ),
+            ),
+          ],
         ),
       );
     }

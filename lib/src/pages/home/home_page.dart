@@ -38,6 +38,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   double offset = 0.0;
+  double points = 0.0;
   int ticks = 250;
   bool spaceOn = false, pause = true, start = true;
 
@@ -51,6 +52,9 @@ class _HomePageState extends State<HomePage> {
   onTimer(Timer t) {
     if (!pause) {
       ticks += 1;
+      if (!spaceOn) {
+        points += 0.033;
+      }
       var k = pow(1.2, pow(ticks, 1 / 2.8));
       for (var p in projectiles) {
         p.offset += k;
@@ -96,6 +100,8 @@ class _HomePageState extends State<HomePage> {
     ticks = 250;
     pause = true;
     start = true;
+    points = 0.0;
+    result = null;
     projectiles = <Projectile>[];
   }
 
@@ -211,7 +217,7 @@ class _HomePageState extends State<HomePage> {
           result != null
               ? result!
                   ? "VOCÊ GANHOU!"
-                  : "VOCÊ PERDEU!"
+                  : "VOCÊ PERDEU!\n${points.toStringAsFixed(2)} PONTOS"
               : start
                   ? "APERTE ESPAÇO\nPARA COMEÇAR"
                   : "PAUSADO",
@@ -324,7 +330,16 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
             ),
-            const Spacer(flex: 2),
+            const Spacer(),
+            Text(
+              "Pontuação: ${points.toStringAsFixed(2)}",
+              style: const TextStyle(
+                fontSize: 36,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const Spacer(),
           ],
         ),
       ),

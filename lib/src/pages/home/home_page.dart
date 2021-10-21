@@ -234,6 +234,7 @@ class _HomePageState extends State<HomePage> {
                   : start
                       ? "APERTE ESPAÇO\nPARA COMEÇAR"
                       : "PAUSADO",
+              textAlign: TextAlign.center,
               style: const TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
@@ -241,14 +242,15 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             const SizedBox(height: 156),
-            if (result == null) const Text(
-              "Para desviar dos sentimentos ruins, segure a tecla barra de espaço",
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 36,
+            if (result == null)
+              const Text(
+                "Para desviar dos sentimentos ruins, segure a tecla barra de espaço",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 36,
+                ),
               ),
-            ),
           ],
         ),
       );

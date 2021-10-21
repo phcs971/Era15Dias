@@ -50,7 +50,8 @@ class _HomePageState extends State<HomePage> {
   bool? result;
 
   Timer? timer;
-  DateTime get currentDate => DateTime(2020, 3, 12).add(Duration(days: (offset / 700).round()));
+  final initialDate = DateTime(2020, 3, 12);
+  DateTime get currentDate => initialDate.add(Duration(days: (offset / 700).round()));
 
   final focus = FocusNode();
 
@@ -218,10 +219,11 @@ class _HomePageState extends State<HomePage> {
           result != null
               ? result!
                   ? "VOCÊ GANHOU!"
-                  : "VOCÊ PERDEU!\n${points.toStringAsFixed(2)} PONTOS"
+                  : "VOCÊ SOBREVIVEU ${currentDate.difference(initialDate).inDays} DIAS!\n${points.toStringAsFixed(2)} PONTOS"
               : start
                   ? "APERTE ESPAÇO\nPARA COMEÇAR"
                   : "PAUSADO",
+          textAlign: TextAlign.center,
           style: const TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,

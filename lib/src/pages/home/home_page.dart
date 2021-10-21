@@ -52,16 +52,12 @@ class _HomePageState extends State<HomePage> {
   onTimer(Timer t) {
     if (!pause) {
       ticks += 1;
-      if (!spaceOn) {
-        points += 0.033;
-      }
+      if (!spaceOn) points += 0.033;
       var k = pow(1.2, pow(ticks, 1 / 2.8));
       for (var p in projectiles) {
         p.offset += k;
       }
-      setState(() {
-        offset += k;
-      });
+      setState(() => offset += k);
     }
   }
 

@@ -58,23 +58,20 @@ class _HomePageState extends State<HomePage> {
   bool? result;
 
   Timer? timer;
-  DateTime get currentDate => DateTime(2020, 3, 12).add(Duration(days: (offset / 700).round()));
+  final initialDate = DateTime(2020, 3, 12);
+  DateTime get currentDate => initialDate.add(Duration(days: (offset / 700).round()));
 
   final focus = FocusNode();
 
   onTimer(Timer t) {
     if (!pause) {
       ticks += 1;
-      if (!spaceOn) {
-        points += 0.033;
-      }
+      if (!spaceOn) points += 0.033;
       var k = pow(1.2, pow(ticks, 1 / 2.8));
       for (var p in projectiles) {
         p.offset += k;
       }
-      setState(() {
-        offset += k;
-      });
+      setState(() => offset += k);
     }
   }
 
@@ -233,7 +230,7 @@ class _HomePageState extends State<HomePage> {
               result != null
                   ? result!
                       ? "VOCÊ GANHOU!"
-                      : "VOCÊ PERDEU!\n${points.toStringAsFixed(2)} PONTOS"
+                      : "VOCÊ SOBREVIVEU ${currentDate.difference(initialDate).inDays} DIAS!\n${points.toStringAsFixed(2)} PONTOS"
                   : start
                       ? "APERTE ESPAÇO\nPARA COMEÇAR"
                       : "PAUSADO",

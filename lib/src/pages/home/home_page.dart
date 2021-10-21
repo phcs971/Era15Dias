@@ -8,8 +8,13 @@ import 'package:intl/intl.dart';
 
 import '../../utils.dart';
 
-//TODO Completar com lista de imagens
-const images = [''];
+const images = [
+  'assets/images/stories/gincana_headache.png',
+  'assets/images/stories/gincana_raiva.png',
+  'assets/images/stories/gincana_tristeza.png',
+  'assets/images/stories/gincana_angustia.png',
+  'assets/images/stories/gincana_covid_2.png',
+];
 final rand = Random();
 
 class Projectile {

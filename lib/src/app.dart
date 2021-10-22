@@ -13,8 +13,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'Hackathona Matata',
       debugShowCheckedModeBanner: false,
-      //TODO ARRUMAR
-      initialRoute: "/jogoDaVelha",
+      initialRoute: "/",
       routes: {
         "/": (_) => const HomePage(),
         "/era15dias": (_) => const RunPage(),

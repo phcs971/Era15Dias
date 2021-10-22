@@ -1,3 +1,5 @@
+import 'package:era15dias/src/pages/run/run_page.dart';
+import 'package:era15dias/src/pages/tictactoe/tictactoe_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -8,17 +10,23 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Era 15 Dias...',
+    return MaterialApp(
+      title: 'Hackathona Matata',
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
-      localizationsDelegates: [
+      //TODO ARRUMAR
+      initialRoute: "/jogoDaVelha",
+      routes: {
+        "/": (_) => const HomePage(),
+        "/era15dias": (_) => const RunPage(),
+        "/jogoDaVelha": (_) => const TicTacToePage(),
+      },
+      localizationsDelegates: const [
         GlobalCupertinoLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
       ],
-      supportedLocales: [Locale('pt', 'BR')],
-      locale: Locale('pt', 'BR'),
+      supportedLocales: const [Locale('pt', 'BR')],
+      locale: const Locale('pt', 'BR'),
     );
   }
 }

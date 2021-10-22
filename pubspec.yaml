@@ -26,6 +26,7 @@ flutter:
 
   assets:
     - assets/images/layers/
+    - assets/images/tictactoe/
     - assets/images/stories/
     - assets/images/
   #   - images/a_dot_ham.jpeg
